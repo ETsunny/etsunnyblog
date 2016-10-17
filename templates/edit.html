@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/markdown/css/editormd.min.css"/>
+
+</head>
+
+<script src="../static/markdown/examples/js/jquery.min.js"></script>
+<script src="../static/markdown/editormd.min.js"></script>
+<script type="text/javascript">
+        $(function() {
+            var editor = editormd("editormd", {
+                height: 640,
+                path : "../static/markdown/lib/", // Autoload modules mode, codemirror, marked... dependents libs path
+                saveHTMLToTextarea : true    // 保存 HTML 到 Textarea
+            });
+
+            $("#get-html-btn").bind('click', function(){
+            var title =$('#title').val()
+            var content=editor.getHTML()
+            var subtitle=$('#subtitle').val()
+
+             var form = {
+                title:title,
+                content: content,
+                subtitle:subtitle
+              }
+              var request = {
+                    url: '/blog/add',
+                    type: 'POST',
+                    data: form,
+                    success: function(response){
+                       console.log('成功', response)
+                        window.location.href='/user'
+                },
+                error: function(err){
+                  console.log('网络错误', error)
+                }
+              }
+              $.ajax(request)
+            });
+        });
+</script>
+
+<body>
+<h2>新博客</h2>
+    <input id="title" type="text" class="form-control" placeholder="标题"/></br>
+    <input id="subtitle" type="text" class="form-control" placeholder="副标题"/>
+    <br>
+    <div id="editormd">
+        <textarea style="display:none;" name="content">### Hello Editor.md !</textarea>
+    </div>
+    <div style="text-align:center;">
+        <button id="get-html-btn" type="submit" class="btn btn-primary">完成</button>
+    </div>
+<br>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}ETsunny's blog{% endblock %}
+{% block wrapper%}
+{{super()}}
+<!-- Main -->
+<div id="main">
+    <!-- Post -->
+    {% for b in blogs %}
+    <article class="post">
+        <header>
+            <div class="title">
+                <h2><a href="{{ url_for('blog.detail',id=b.id) }}">{{ b.title }}</a></h2>
+            </div>
+            <div class="meta">
+                <time class="published" datetime="{{b.created_time}}" >{{b.created_time}}</time>
+            </div>
+        </header>
+        <p>{{ b.subtitle }}</p>
+        <footer>
+            <ul class="actions">
+                <li><a href="{{ url_for('blog.detail',id=b.id) }}" class="button big">Continue reading</a></li>
+            </ul>
+        </footer>
+    </article>
+
+    {% endfor %}
+    </script>
+
+    <!-- Pagination -->
+    <ul class="actions pagination">
+        <li><a href="#" class="disabled button big next">Next Page</a></li>
+    </ul>
+
+</div>
+
+<!-- Sidebar -->
+<section id="sidebar">
+
+    <!-- Intro -->
+    <section id="intro">
+        <a href="#" class="logo"><img src="../static/images/logo.jpg" alt=""/></a>
+        <header>
+            <h2>ETsunny</h2>
+            <p>Life is short, you need Python</p>
+        </header>
+    </section>
+
+
+
+    <!-- Footer -->
+    <section id="footer">
+        <ul class="icons">
+            <li><a href="http://www.github.com/ETsunny" class="fa-github"><span>&nbsp;GitHub</span></a></li>
+        </ul>
+        <p class="copyright">&copy; Copyright. ETsunny 2016
+    </section>
+</section>
+{% endblock %}

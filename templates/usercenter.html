@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Admin{% endblock %}
+
+{% block wrapper %}
+{{ super() }}
+<!-- Main -->
+<div id="main">
+    <!-- Post -->
+    <ul class="actions fit small">
+        <li><a href="{{url_for('blog.add_view')}}" class="button fit">新增博客</a></li>
+
+    </ul>
+    <article class="post">
+        <!-- Posts List -->
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Operation</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for blog in blogs%}
+                <tr>
+                    <td>{{blog.title}}</td>
+                    <td>
+                        <time class="published" datetime="2015-10-20">October 20, 2015</time>
+                    </td>
+                    <td>
+                        <a href="{{url_for('blog.delete',id=blog.id)}}">删除</a> &nbsp;&nbsp;&nbsp; <a href="{{url_for('blog.update_view',id=blog.id)}}">更新</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </article>
+</div>
+{% endblock %}

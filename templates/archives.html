@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}ETsunny's blog{% endblock %}
+{% block wrapper%}
+{{super()}}
+<!-- Main -->
+<div id="main">
+    <!-- Post -->
+    <h3>All Post</h3>
+    	<section>
+        	<ul class="posts">
+    {% for b in blogs %}
+									<li>
+										<article>
+											<header>
+												<h3><a href="{{ url_for('blog.detail',id=b.id) }}">{{b.title}}</a></h3>
+												<time class="published" datetime="{{b.created_time}}">{{b.created_time}}</time>
+											</header>
+										</article>
+									</li>
+
+    {% endfor %}
+  </ul>
+</section>
+</div>
+
+<!-- Sidebar -->
+<section id="sidebar">
+
+    <!-- Intro -->
+    <section id="intro">
+        <a href="#" class="logo"><img src="../static/images/logo.jpg" alt=""/></a>
+        <header>
+            <h2>ETsunny</h2>
+            <p>Life is short, you need Python</p>
+        </header>
+    </section>
+
+
+
+    <!-- Footer -->
+    <section id="footer">
+        <ul class="icons">
+            <li><a href="http://www.github.com/ETsunny" class="fa-github"><span>&nbsp;GitHub</span></a></li>
+        </ul>
+        <p class="copyright">&copy; Copyright. ETsunny 2016
+    </section>
+</section>
+
+{% endblock %}

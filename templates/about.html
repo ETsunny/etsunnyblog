@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}ETsunny's blog{% endblock %}
+{% block wrapper%}
+{{super()}}
+<!-- Main -->
+<div id="main">
+    <h1>About</h1>
+	<p>	<pre>Liang ZeXian (梁泽贤) < lzxetunny@outlook.com >
+
+		Program on Python Web, Java Android</pre></p>
+
+		<!-- 多说评论框 start -->
+		 <div class="ds-thread" data-thread-key="about" data-title="about"
+					data-url="/about"></div>
+		 <!-- 多说评论框 end -->
+		 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		 <script type="text/javascript">
+var duoshuoQuery = {short_name:"etsunny"};
+(function() {
+ var ds = document.createElement('script');
+ ds.type = 'text/javascript';ds.async = true;
+ ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+ ds.charset = 'UTF-8';
+ (document.getElementsByTagName('head')[0]
+	|| document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+		 </script>
+		 <!-- 多说公共JS代码 end -->
+</div>
+
+<!-- Sidebar -->
+<section id="sidebar">
+
+    <!-- Intro -->
+    <section id="intro">
+        <a href="#" class="logo"><img src="../static/images/logo.jpg" alt=""/></a>
+        <header>
+            <h2>ETsunny</h2>
+            <p>Life is short, you need Python</p>
+        </header>
+    </section>
+
+
+
+    <!-- Footer -->
+    <section id="footer">
+        <ul class="icons">
+            <li><a href="http://www.github.com/ETsunny" class="fa-github"><span>&nbsp;GitHub</span></a></li>
+        </ul>
+        <p class="copyright">&copy; Copyright. ETsunny 2016
+    </section>
+</section>
+
+{% endblock %}
