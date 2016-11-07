@@ -25,7 +25,7 @@ manager = Manager(app)
 
 def register_routes(app):
     app.register_blueprint(routes_blog, url_prefix='/blog')
-    app.register_blueprint(routes_user, url_prefix='/user')
+    app.register_blueprint(routes_user, url_prefix='/blog/user')
     app.register_blueprint(routes)
 
 

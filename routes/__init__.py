@@ -20,8 +20,3 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def index_view():
     return redirect(url_for('blog.index'))
-
-
-@main.route('/about')
-def about_view():
-    return render_template('about.html')

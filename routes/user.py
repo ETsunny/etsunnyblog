@@ -56,3 +56,7 @@ def login():
         print('登录失败')
     # 蓝图中的 url_for 需要加上蓝图的名字，这里是 user
     return redirect(url_for('.login_view'))
+
+@main.route('/about')
+def about_view():
+    return render_template('about.html')
